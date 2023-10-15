@@ -1,0 +1,91 @@
+.user-login {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 80px;
+	padding-bottom: 40px;
+	width: 350px;
+	min-height: 70vh;
+}
+
+.user-login h2 {
+	font-size: 50px;
+	font-weight: bold;
+	margin-bottom: 60px;
+}
+
+.login_input_wrap {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 40px;
+}
+
+.login_input_wrap input{
+	width: 300px;
+	height: 30px;
+	border: none;
+	padding: 0.5rem 1.8rem 0.5rem 1.8rem;
+	background-color: rgb(230, 230, 230);
+	margin-top: 10px;
+	border-radius: 5px;
+	font-size: 16px;
+}
+
+.login_btn {
+	width: 310px;
+	height: 40px;
+	border: none;
+	font-weight: bold;
+	/* background: var(--maincolor); */
+	background-color: rgb(207, 207, 207);
+
+	padding: 0.5rem 1.8rem 0.5rem 1.8rem;
+	border-radius: 5px;
+	color: white;
+	font-size: 16px;
+	cursor: pointer;
+	margin-bottom: 10px;
+}
+.google_btn {
+	width: 310px;
+	height: 40px;
+	border: none;
+	font-weight: bold;
+	background: rgb(236, 236, 236);
+	padding: 0.5rem 1.8rem 0.5rem 1.8rem;
+	border-radius: 5px;
+	color: rgb(0, 0, 0);
+	font-size: 16px;
+	cursor: pointer;
+	margin-bottom: 10px;
+}
+.github_btn {
+	width: 310px;
+	height: 40px;
+	border: none;
+	font-weight: bold;
+	background: black;
+	padding: 0.5rem 1.8rem 0.5rem 1.8rem;
+	border-radius: 5px;
+	color: white;
+	font-size: 16px;
+	cursor: pointer;
+}
+.user-login a {
+	margin-top: 3rem;
+	color: var(--maincolor);
+	text-decoration: none;
+}
+
+
+
+/* .github_btn {
+	margin-top: 1rem;
+	background-color: black;
+	color: white;
+} */

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+		<link rel="stylesheet" href="../assets/css/reset.css" />
+
+		<link rel="stylesheet" href="../assets/css/global.css" />
+
+		<!-- layout -->
+		<link rel="stylesheet" href="../assets/css/header.css" />
+		<link rel="stylesheet" href="../assets/css/footer.css" />
+		<link rel="stylesheet" href="../assets/css/about.css" />
+
+		<!-- component -->
+		<link rel="stylesheet" href="../assets/css/button.css" />
+		<link rel="stylesheet" href="../assets/css/banner.css" />
+		<link rel="stylesheet" href="../assets/css/category.css" />
+		<link rel="stylesheet" href="../assets/css/author.css" />
+
+		<link rel="stylesheet" href="../assets/css/post.css" />
+		<link rel="stylesheet" href="../assets/css/posts.css" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+        <link rel="stylesheet" href="../assets/css/join.css" />
+
+</head>
+<body>
+    <header>
+        <div class="max-width">
+            <h1>
+                <a href="../index.html">
+                    <img src="../assets/img/Logo.svg" alt="My Blog" />
+                </a>
+            </h1>
+            <ul>
+                <!-- 로그인 -->
+                <!-- <li class="profile-img">
+                    <a href="#">
+                        <img src="../assets/img/profile.jpg" alt="My Page" />
+                    </a>
+                </li> -->
+                <!-- <li>
+                    <a href="#" class="button">
+                        <img src="../assets/img/icon-modify-white.svg" alt="" />
+                        <span>Write</span>
+                    </a>
+                </li> -->
+                <!-- <li>
+                    <button class="button white">
+                        <img src="../assets/img/icon-logout.svg" alt="" />
+                        <span>Logout</span>
+                    </button>
+                </li> -->
+                <!-- //로그인 -->
+
+                <!-- 로그아웃 -->
+                <!--
+                <li>
+                    <a href="#" class="button gray">
+                        <img src="./assets/icon-login.svg" alt="" />
+                        <span>Login</span>
+                    </a>
+                </li>
+                <li class="only-pc">
+                    <a href="#" class="button gray">
+                        <img src="./assets/icon-register.svg" alt="" />
+                        <span>Register</span>
+                    </a>
+                </li>
+                -->
+                <!--// 로그아웃 -->
+            </ul>
+        </div>
+        
+    </header>
+    <main>
+        <form class="user-join" method="post">
+            <h2>JOIN</h2>
+            <div class="join_input_wrap">
+                <input class="user-join__username" name="user-name" type="text" placeholder="아이디 입력">
+                <input class="user-join__password" name="password" type="password" placeholder="비밀번호 입력">
+                <input class="user-join__password_valid" name="password" type="password" placeholder="비밀번호 확인">
+            </div>
+            <input class="join_btn" type="submit" value="회원가입">
+        </form>
+    </main>
+
+    <footer>
+        <div class="footer_wrap">
+            <!-- <img src="/src/assets/img/logo.png" alt="ORGO"> -->
+            <div class="footer_content">
+                <p>헬스장 찾기 어려운 분들을 위한 헬스장 소개 커뮤니티 입니다. </p>
+                <p>Copyright 2023. Chilli All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="../assets/js/join.js" type="module"></script>
+
+</body>
+</html>
