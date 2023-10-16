@@ -1,4 +1,4 @@
-// import {getWithExpire} from './util.js'
+import {is_logined} from './util.js'
 
 const $join_btn= document.querySelector('.join_btn')
 
@@ -38,7 +38,7 @@ const joinFunc = async (event) => {
             alert(data.errors[0])
         } else{
             alert('회원가입을 축하합니다.')
-            location.href= '/src/view/login.html'
+            location.href= '/view/login.html'
         }
     })
     .catch((err) => {

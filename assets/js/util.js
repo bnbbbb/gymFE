@@ -5,7 +5,7 @@
  */
 export const setCookie = (cookie_name, value) => {
     let exdate = new Date();
-    exdate.setDate(exdate.getMinutes() + 30);
+    exdate.setMinutes(exdate.getMinutes() + 30);
     // 설정 일수만큼 현재시간에 만료값으로 지정
     const cookie_value = value + '; expires=' + exdate.toUTCString();
     document.cookie = cookie_name + '=' + cookie_value;
@@ -31,4 +31,25 @@ export const setWithExpire = (key, data) => {
     let item = data
     item['expires'] = now.getTime() + (2*60*60*1000) - 1000
     localStorage.setItem(key,JSON.stringify(item))
+}
+
+export const getWithExpire = (key) => {
+    
+    const itemStr = localStorage.getItem(key)
+
+    if(!itemStr){
+        return null
+    }
+
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if(now.getTime() > item.expires) {
+        localStorage.removeItem(key)
+        deleteCookie('access')
+        deleteCookie('refresh')
+        alert('로그인 시간이 만료되어 로그아웃 되었습니다.')
+        return null
+    }
+    return itemStr
 }

@@ -10,6 +10,13 @@
 	transition: all 0.3s;
 }
 
+.form-title{
+	width: 100%;
+	margin-bottom: 20px;
+	border-color: gray;
+	border-width: thin;
+}
+
 .wrap-box .inner {
 	width: 39.2rem;
 	max-width: calc(100% - 8rem);
