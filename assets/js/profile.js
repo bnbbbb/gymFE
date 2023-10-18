@@ -1,0 +1,112 @@
+import { getCookie, setWithExpire } from "./util.js"
+
+
+const $previewImage = document.querySelector('.preview-image')
+const $userImage = document.querySelector('.image-input')
+const $user_name = document.querySelector('.user-name')
+const $address_num = document.querySelector('.address-num')
+const $address = document.querySelector('.address')
+const $address_relate = document.querySelector('.address-relate')
+const $address_detail = document.querySelector('.address-detail')
+// const user = getWithExpire('user');
+const userProfileData = JSON.parse(localStorage.getItem('userprofile'));
+const $profile_save = document.querySelector('.profile-btn')
+
+
+const myprofile = async() => {
+    const access = getCookie('access')
+    const url = 'http://127.0.0.1:8000/user/profile/'
+
+    await fetch(url, {
+        method: "POST",
+        headers: {
+            "Authorization": `Bearer ${access}`,
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userProfileData),
+    })
+    .then((res) => res.json())
+    .then((data) => {
+        console.log(data);
+        if (data.image){
+            $previewImage.src = data.image
+        }
+        else{
+            $previewImage.src = '../assets/img/default.png'
+        }
+        $user_name.value = data.name;
+        $address_num.value = data.address_num;
+        $address.value = data.address;
+        $address_relate.value = data.address_relate;
+        $address_detail.value = data.address_detail;
+    })
+    .catch((err) => {
+        console.log(err);
+    });
+}
+const name = $user_name.value
+console.log(name);
+
+const profile_save = async (event) => {
+    event.preventDefault()
+
+    const formData = new FormData();
+    const name = $user_name.value
+    const profileimage = $userImage.files[0]
+    const access = getCookie('access')
+    const address_num = $address_num.value
+    const address = $address.value
+    const address_relate = $address_relate.value
+    const address_detail = $address_detail.value
+    if (profileimage) {
+        formData.append('image', profileimage)
+    }
+    formData.append('name', name)
+    formData.append('address_num', address_num)
+    formData.append('address', address)
+    formData.append('address_relate', address_relate)
+    formData.append('address_detail', address_detail)
+    console.log(formData);
+
+    const url = 'http://127.0.0.1:8000/user/profile/update/'
+
+    await fetch(url, {
+        method: "POST",
+        headers: {
+            "Authorization": `Bearer ${access}`,
+        },
+        body: formData,
+    })
+    .then((res) => res.json())
+    .then((data) => {
+        if (data) {
+            // alert('프로필 변경이 완료되었습니다.')
+            // setWithExpire('user', data);
+            console.log(data);
+        }
+    })
+    .catch((err) => {
+        console.log(err);
+    });
+}
+
+const previewImage = (event) => {
+    const file = event.target.files[0];
+    console.log(file);
+    if (file.size > 250000){
+        alert('파일크기는 2.5MB 이내로 가능합니다.')
+        event.target.value = ''
+    } else{
+        let reader = new FileReader();
+
+        reader.onload = function (event) {
+            $previewImage.setAttribute("src", event.target.result);
+        };
+        reader.readAsDataURL(file);
+    }
+    
+};
+
+$userImage.addEventListener('change', previewImage)
+myprofile()
+$profile_save.addEventListener('click', profile_save)

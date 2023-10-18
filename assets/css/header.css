@@ -63,3 +63,28 @@ header .button {
 		padding: 0;
 	}
 }
+header .button_logout {
+	text-transform: none;
+}
+
+@media (max-width: 640px) {
+	.only-pc {
+		display: none;
+	}
+	header .button_logout {
+		width: 4.4rem;
+		height: 4.4rem;
+		padding: 0;
+		border-radius: 50%;
+	}
+	header .button_logout span {
+		overflow: hidden;
+		position: absolute;
+		clip: rect(0, 0, 0, 0);
+		width: 1px;
+		height: 1px;
+		margin: -1px;
+		border: 0;
+		padding: 0;
+	}
+}

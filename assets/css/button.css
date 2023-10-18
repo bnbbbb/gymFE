@@ -32,6 +32,12 @@
 	background: var(--white-color);
 	color: var(--black-color);
 }
+.button_logout {
+	padding: 0.2rem 0.8em 0;
+	background: var(--white-color);
+	color: var(--black-color);
+	border-style: none;
+}
 .button.white img {
 	height: 1.4em;
 }

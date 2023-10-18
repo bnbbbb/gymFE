@@ -1,12 +1,12 @@
-const Editor = toastui.Editor;
+// const Editor = toastui.Editor;
 
 
-const editor = new Editor({
-    el: document.querySelector("#toast-editor"),
-    height: "500px",
-    initialEditType: "markdown",
-    previewStyle: "vertical",
-});
+// const editor = new Editor({
+//     el: document.querySelector("#toast-editor"),
+//     height: "500px",
+//     initialEditType: "markdown",
+//     previewStyle: "vertical",
+// });
 
 // const write_form = document.querySelector('#write-form');
 // // const form_content = document.querySelector('#form-content')

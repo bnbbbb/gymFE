@@ -19,6 +19,10 @@ export const getCookie = function(name){
     return value? value[2] : null;
 }
 
+export const deleteCookie = (name) => {
+    document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+}
+
 // 로그인이 되있으면 홈으로
 export const is_logined = () => {
     if (localStorage.getItem('user')) {
