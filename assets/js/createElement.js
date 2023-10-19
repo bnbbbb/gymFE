@@ -15,25 +15,33 @@ export const create_post = (post, owner, where, likes) => {
     const post_date = document.createElement('dd');
     const post_content = document.createElement('p');
     const post_writer = document.createElement('p');
-
-    const post_url = '/detail.html'
+    const post_url = './view/detail.html'
     const originDate = post.created_at
     const date = new Date(originDate);
     const year = date.getFullYear();
     const month = (date.getMonth() + 1).toString().padStart(2, '0'); // 월은 0부터 시작하므로 1을 더하고 두 자리로 포맷팅
     const day = date.getDate().toString().padStart(2, '0');
-
+    
+    const lines = post.content.split('\n'); // 줄 바꿈 문자를 기준으로 문자열을 나눕니다.
+    // console.log(lines);
+    const firstThreeLines = lines.slice(0, 1);
+    // const htmlContent = marked(post.content);
+    // console.log(htmlContent);
+    
+    console.log(firstThreeLines);
     post_a.id = post.id
     post_a.href = post_url
+    post_a.className = 'post'
     post_div.className = 'contents-wrap'
     post_category.className = 'category'
     post_dt.className = 'a11y-hidden'
     post_author.className = 'author'
     post_date.className = 'created'
-    post_content.className = 'post-descrption';
+    post_content.className = 'post-description';
     post_dl.className = 'author-wrap'
     author_img.className = 'profile_img'
     post_title.innerText = post.title
+    // post_content.innerHTML = firstThreeLines
     post_content.innerHTML = post.content
     // let owner_name = owner.name
     if (owner.image){
@@ -62,3 +70,5 @@ export const create_post = (post, owner, where, likes) => {
     // post_li 엘리먼트를 반환
     return post_li;
 }
+
+

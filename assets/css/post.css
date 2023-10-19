@@ -12,6 +12,8 @@
 
 .contents-wrap {
 	padding: 1.6rem 2.4rem 2.4rem;
+	max-width: 240px;
+	width: 100%;
 }
 
 .contents-wrap h3,
@@ -50,4 +52,13 @@
 		height: auto;
 		-webkit-line-clamp: 2;
 	}
+}
+
+.post-description * {
+	height: calc(1.4rem * 1.4 * 3);
+	margin-top: 1.6rem;
+	color: var(--gray-color);
+	font-size: 1.4rem;
+	-webkit-line-clamp: 3;
+	text-indent: 0.5em;
 }

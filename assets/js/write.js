@@ -23,6 +23,10 @@ const postWrite = async () => {
     formData.append('title', $title.value);
     // formData.append('content', $toast_ui.value);
     formData.append('content', editor.getHTML());
+    // const htmlContent = marked(editor.getMarkdown());
+    // console.log(htmlContent);
+    // formData.append('content', editor.getMarkdown());
+    // formData.append('content', htmlContent);
     console.log(editor.getMarkdown());
     console.log(editor.getHTML());
     console.log($toast_ui.value);

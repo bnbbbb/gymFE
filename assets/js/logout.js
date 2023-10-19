@@ -2,7 +2,6 @@ import {deleteCookie} from "./util.js"
 
 const $logout_btn = document.querySelector('.button_logout')
 
-console.log($logout_btn);
 
 const logout = (event) => {
     event.preventDefault()

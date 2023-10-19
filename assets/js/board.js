@@ -13,9 +13,6 @@ const post_list = async () => {
         const datas = data.posts
         console.log(datas);
         datas.forEach(data => {
-            console.log(data.posts);
-            console.log(data.post.post);
-            console.log(data.writer);
             const element = create_post(data.posts, data.writer, 'board', data.likes);
             $post_list.append(element)
         })
