@@ -72,3 +72,18 @@ export const create_post = (post, owner, where, likes) => {
 }
 
 
+// export const create_view = (post_id, owner, likes) => {
+//     // const $post_view = document.createElement('div')
+//     const $post_width = document.createElement('div')
+//     const $post_box = document.createElement('section')
+//     const $post_inner = document.createElement('div')
+//     const $owner = document.createElement('dl')
+//     const $owner_hidden = document.createElement('dt')
+//     const $owner_author = document.createElement('dd')
+//     const $created_hidden = document.createElement('dt')
+//     const $created_time = document.createElement('dd')
+//     const $tag = document.createElement('dl')
+//     const $tag_hidden = document.createElement('dl')
+//     const $tag = document.createElement('dl')
+
+// }

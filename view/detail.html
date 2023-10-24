@@ -24,6 +24,10 @@
 
 		<link rel="stylesheet" href="../assets/css/wrapbox.css" />
 		<link rel="stylesheet" href="../assets/css/view.css" />
+		<!-- <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor-viewer.min.css" />
+		<script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script> -->
+		<link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor-viewer.min.css">
+		<script src="https://uicdn.toast.com/editor/latest/toastui-editor-viewer.min.js"></script>
 	</head>
 	<body>
 		<!-- header -->
@@ -77,10 +81,10 @@
 		<!--// header -->
 
 		<!-- banner -->
-		<div class="banner" style="background-image: url(./images/post-background6.jpg)">
+		<div class="banner">
 			<div class="max-width">
 				<div class="banner-contents">
-					<p class="today">May <em>25</em> Wednesday</p>
+					<p class="today"></p>
 				</div>
 			</div>
 		</div>
@@ -97,9 +101,10 @@
 						<!-- author -->
 						<dl class="author-wrap">
 							<dt class="a11y-hidden">Author</dt>
-							<dd class="author"><img src="../assets/img/profile.jpg" alt="" /> Chilli</dd>
+							<dd class="author"><img class="author-img" src="../assets/img/profile.jpg" alt="" /> 
+								<p class="author-name"></p></dd>
 							<dt class="a11y-hidden">Created</dt>
-							<dd class="created">2022.05.25</dd>
+							<dd class="created"></dd>
 						</dl>
 						<!-- //author -->
 
@@ -111,28 +116,11 @@
 						</dl>
 						<!-- //category -->
 						<div class="title-wrap">
-							<h2>Lorem, ipsum dolor sit amet consectetur adipisicing elit.</h2>
+							<h2 class="post-title"></h2>
 							<button class="btn-like">Like</button>
 						</div>
 						<hr />
 						<div class="view-contents">
-							<p>
-								Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore illum nostrum perferendis voluptas, voluptate soluta corrupti dolore quidem. Placeat, eaque! Exercitationem est
-								facilis dolor quas odio cum incidunt repudiandae vel. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore illum nostrum perferendis voluptas, voluptate soluta corrupti
-								dolore quidem. Placeat, eaque! Exercitationem est facilis dolor quas odio cum incidunt repudiandae vel. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore illum
-								nostrum perferendis voluptas, voluptate soluta corrupti dolore quidem. Placeat, eaque! Exercitationem est facilis dolor quas odio cum incidunt repudiandae vel. Lorem ipsum dolor sit
-								amet consectetur, adipisicing elit. Inventore illum nostrum perferendis voluptas, voluptate soluta corrupti dolore quidem. Placeat, eaque! Exercitationem est facilis dolor quas odio
-								cum incidunt repudiandae vel.
-							</p>
-							<img src="../assets/img/background.jpg" alt="" />
-							<p>
-								Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore illum nostrum perferendis voluptas, voluptate soluta corrupti dolore quidem. Placeat, eaque! Exercitationem est
-								facilis dolor quas odio cum incidunt repudiandae vel. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore illum nostrum perferendis voluptas, voluptate soluta corrupti
-								dolore quidem. Placeat, eaque! Exercitationem est facilis dolor quas odio cum incidunt repudiandae vel. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore illum
-								nostrum perferendis voluptas, voluptate soluta corrupti dolore quidem. Placeat, eaque! Exercitationem est facilis dolor quas odio cum incidunt repudiandae vel. Lorem ipsum dolor sit
-								amet consectetur, adipisicing elit. Inventore illum nostrum perferendis voluptas, voluptate soluta corrupti dolore quidem. Placeat, eaque! Exercitationem est facilis dolor quas odio
-								cum incidunt repudiandae vel.
-							</p>
 						</div>
 						<div class="btn-group">
 							<a href="#" class="btn-modify">
@@ -157,5 +145,7 @@
 			</div>
 		</footer>
 		<!-- //footer -->
+		<!-- <script src="https://cdn.jsdelivr.net/npm/github-markdown-css@2.4.1/github-markdown.min.css"></script> -->
+		<script src="../assets/js/detail.js" type="module"></script>
 	</body>
 </html>

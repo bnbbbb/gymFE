@@ -1,3 +1,4 @@
+import { detail_page } from "./util.js"
 import { create_post } from "./createElement.js"
 
 const post_list = async () => {
@@ -16,10 +17,20 @@ const post_list = async () => {
             const element = create_post(data.posts, data.writer, 'board', data.likes);
             $post_list.append(element)
         })
+        const posts = document.querySelectorAll('.post');
+        posts.forEach(post => {
+            post.addEventListener('click', detail_page);
+        });
     })
     .catch((err) => {
         console.log(err);
     })
 }
+
+
+
+// posts.forEach(post => {
+//     post.addEventListener('click', detail_page);
+// });
 
 post_list()

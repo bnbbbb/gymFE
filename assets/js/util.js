@@ -57,3 +57,15 @@ export const getWithExpire = (key) => {
     }
     return itemStr
 }
+
+export const detail_page = (event) => {
+    let target = event.target;
+    console.log('Clicked element ID:', target.id);
+    while (target.classList != 'post'){
+        target = target.parentNode
+    }
+    const post_page = {
+        'page': target.id
+    };
+    localStorage.setItem("postPage", JSON.stringify(post_page));
+}
