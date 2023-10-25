@@ -6,7 +6,7 @@ const $title = document.querySelector('.form-title')
 const $toast_ui = document.querySelector('#toast-editor')
 // const $toast_ui = document.querySelector('#toastui-editor-contents')
 const $saveBtn = document.querySelector('.post-save');
-
+const $tags = document.querySelector('.tag-title')
 const Editor = toastui.Editor;
 
 
@@ -22,7 +22,9 @@ const postWrite = async () => {
     const access = getCookie('access');
     formData.append('title', $title.value);
     // formData.append('content', $toast_ui.value);
-    formData.append('content', editor.getHTML());
+    // formData.append('content', editor.getHTML());
+    formData.append('content', editor.getMarkdown());
+    formData.append('tags', $tags.value)
     // const htmlContent = marked(editor.getMarkdown());
     // console.log(htmlContent);
     // formData.append('content', editor.getMarkdown());
@@ -30,6 +32,7 @@ const postWrite = async () => {
     console.log(editor.getMarkdown());
     console.log(editor.getHTML());
     console.log($toast_ui.value);
+    
     await fetch(url, {
         method: "POST",
         headers: {

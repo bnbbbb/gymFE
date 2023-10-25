@@ -6,7 +6,6 @@ export const create_post = (post, owner, where, likes) => {
     const post_div = document.createElement('div');
     const post_category = document.createElement('dl');
     const post_dt = document.createElement('dt');
-    const post_tag = document.createElement('dd');
     const post_title = document.createElement('h3');
     // const post_author = document.createElement('author');
     const post_dl = document.createElement('dl');
@@ -24,11 +23,10 @@ export const create_post = (post, owner, where, likes) => {
     
     const lines = post.content.split('\n'); // 줄 바꿈 문자를 기준으로 문자열을 나눕니다.
     // console.log(lines);
-    const firstThreeLines = lines.slice(0, 1);
     // const htmlContent = marked(post.content);
     // console.log(htmlContent);
+    // console.log(post);
     
-    console.log(firstThreeLines);
     post_a.id = post.id
     post_a.href = post_url
     post_a.className = 'post'
@@ -43,6 +41,14 @@ export const create_post = (post, owner, where, likes) => {
     post_title.innerText = post.title
     // post_content.innerHTML = firstThreeLines
     post_content.innerHTML = post.content
+    post.tags.forEach(data => {
+        const post_tag = document.createElement('dd');
+
+        post_tag.innerText = data.name
+        // const element = create_post(data.post, data.writer, 'board', data.likes);
+        // $post_list.append(element)
+        post_category.append(post_tag)
+    })
     // let owner_name = owner.name
     if (owner.image){
         let profile_url;
@@ -60,7 +66,7 @@ export const create_post = (post, owner, where, likes) => {
     // author_img.outerText = post.name;
     post_li.append(post_a)
     post_dl.append(post_author, post_date)
-    post_category.append(post_dt, post_tag)
+    post_category.append(post_dt)
     post_div.append(post_category, post_title, post_dl, post_content)
     post_art.append(post_img, post_div)
     post_a.append(post_art)

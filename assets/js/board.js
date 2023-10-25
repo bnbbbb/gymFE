@@ -13,8 +13,10 @@ const post_list = async () => {
         const $post_list = document.querySelector('.posts')
         const datas = data.posts
         console.log(datas);
+        console.log(datas);
         datas.forEach(data => {
-            const element = create_post(data.posts, data.writer, 'board', data.likes);
+            console.log(data.post.tags);
+            const element = create_post(data.post, data.writer, 'board', data.likes);
             $post_list.append(element)
         })
         const posts = document.querySelectorAll('.post');

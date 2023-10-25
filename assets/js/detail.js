@@ -9,10 +9,11 @@ const $day = document.querySelector('.today')
 const $owner_img = document.querySelector('.author-img')
 const $owner_name = document.querySelector('.author-name')
 const $created = document.querySelector('.created')
-const $post_tag = document.querySelector('.category')
+const $post_category = document.querySelector('.category')
 const $post_title = document.querySelector('.post-title')
 const $post_content = document.querySelector('.view-contents')
 const $btn_like = document.querySelector('.btn-like')
+const $btn_modify = document.querySelector('.btn-modify')
 const daysOfWeek = ["일", "월", "화", "수", "목", "금", "토"];
 const months = [
     'January', 'February', 'March', 'April', 'May', 'June',
@@ -23,7 +24,7 @@ const currentDate = new Date();
 const monthName = months[currentDate.getMonth()];
 const dayOfMonth = currentDate.getDate();
 const dayOfWeek = daysOfWeeks[currentDate.getDay()];
-
+$btn_modify.href = './edit.html'
 console.log(renderPage);
 // const Editor = toastui.Editor;
 
@@ -36,8 +37,6 @@ const postLoad = async () => {
 
     await fetch(url, {
         method: "get",
-        // headers: {},
-        // body: formData,
     })
     .then((res) => res.json())
     .then((data) => {
@@ -57,7 +56,13 @@ const postLoad = async () => {
         $owner_name.innerText = data.writer.name
         $created.innerText = `${year}-${month}-${day}`
         $post_title.innerText = data.post.title
-        console.log(data);
+        data.tags.forEach(d => {
+            console.log(d);
+            const tag = document.createElement('dd');
+            tag.innerText = d.name
+            $post_category.append(tag)
+        })
+        console.log(data.tags);
     })
     .catch((err) => {
         console.log(err);
