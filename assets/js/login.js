@@ -28,6 +28,7 @@ const id_login = async (evenv) => {
             // localStorage.setItem('follow', JSON.stringify(data.follower));
             // localStorage.setItem('myNotify', JSON.stringify(data.notify));
             setWithExpire('user',data.user)
+            setWithExpire('profile',data.profile)
             location.href= '/index.html'
         } else {
             alert(data.message)

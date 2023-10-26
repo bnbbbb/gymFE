@@ -12,7 +12,7 @@ const Editor = toastui.Editor;
 
 const editor = new Editor({
     el: document.querySelector("#toast-editor"),
-    height: "500px",
+    height: "600px",
     initialEditType: "markdown",
     previewStyle: "vertical",
     
@@ -29,9 +29,6 @@ const postWrite = async () => {
     // console.log(htmlContent);
     // formData.append('content', editor.getMarkdown());
     // formData.append('content', htmlContent);
-    console.log(editor.getMarkdown());
-    console.log(editor.getHTML());
-    console.log($toast_ui.value);
     
     await fetch(url, {
         method: "POST",
@@ -43,7 +40,7 @@ const postWrite = async () => {
     .then((response) => response.json())
     .then((data) => {
         alert(data.message);
-        // location.href = '/index.html'
+        location.href = '/index.html'
     })
     .catch((error) => {
         console.log(error);

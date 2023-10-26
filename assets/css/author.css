@@ -24,3 +24,9 @@
 	margin-right: 1rem;
 	background: var(--border-color);
 }
+
+.profile-image {
+	width: 4em;
+	height: 4em;
+	border-radius: 50%;
+}

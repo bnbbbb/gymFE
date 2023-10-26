@@ -54,23 +54,12 @@
             <ul>
                 <!-- 로그인 -->
                 <li class="profile-img">
-                    <a href="#">
+                    <a href="./profile.html">
                         <img src="../assets/img/profile.jpg" alt="My Page" />
                     </a>
                 </li>
-                <li class="login">
-                    <a href="./login.html">
-                        <img src="../assets/img/icon-login.svg" alt="" />
-                    </a>
-                </li>
-                <li class="join">
-                    <a href="./">
-                        <img src="../assets/img/icon-register.svg" alt="" />
-                    </a>
-                </li>
-                
                 <li>
-                    <button class="button white">
+                    <button class="button_logout">
                         <img src="../assets/img/icon-logout.svg" alt="" />
                         <span>Logout</span>
                     </button>
@@ -119,7 +108,7 @@
                             <div id="toast-editor"></div>
                             <!-- <input id="form-thumbnail" name="thumbnail" type="hidden"> -->
                             <!-- <img src="../assets/img/icon-modify-white.svg" alt="" /> -->
-                            <input class="tag-title" name="text" placeholder="태그를 입력해주세요. #태그">
+                            <input class="tag-title" name="text" placeholder="태그를 입력해주세요. 띄어쓰기로 구분됩니다.">
                             <input class="post-save" type="submit" value="WRITE" class="button">
                         </div>
                     </form>
@@ -129,6 +118,7 @@
     </div>
     </main>
     <script src="../assets/js/edit.js" type="module"></script>
+    <script src="../assets/js/logout.js" type="module"></script>
 
 </body>
 </html>

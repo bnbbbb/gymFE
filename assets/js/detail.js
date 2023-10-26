@@ -25,8 +25,6 @@ const monthName = months[currentDate.getMonth()];
 const dayOfMonth = currentDate.getDate();
 const dayOfWeek = daysOfWeeks[currentDate.getDay()];
 $btn_modify.href = './edit.html'
-console.log(renderPage);
-// const Editor = toastui.Editor;
 
 const Viewer = toastui.Editor;
 
@@ -57,12 +55,10 @@ const postLoad = async () => {
         $created.innerText = `${year}-${month}-${day}`
         $post_title.innerText = data.post.title
         data.tags.forEach(d => {
-            console.log(d);
             const tag = document.createElement('dd');
             tag.innerText = d.name
             $post_category.append(tag)
         })
-        console.log(data.tags);
     })
     .catch((err) => {
         console.log(err);

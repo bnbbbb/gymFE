@@ -54,52 +54,26 @@
                 </div>
             </div>
         </div> 
-        <div class="profile">
-            <div class="profile_box">
-                <div class="left">
-                    <div class="image-box">
-                        <img class="preview-image" alt="프로필 이미지">
-                    </div>
+        <div class="container">
+            <div class="profile-input-box">
+                <div class="max-width">
+                    <img class="preview-image" alt="프로필 이미지" style ="width: 100px; height: 100px; border-radius: 50%;">
                     <!-- <div class="button"> -->
                         <label class="submitButton" for="chooseFile">
                             <!-- 👉 CLICK HERE! 👈 -->
                             <img for="chooseFile" src="../assets/img/icon-image.svg"> 
                             </label>
                             <!-- </div> -->
-                            <input class="image-input" type="file" id="chooseFile" name="chooseFile" accept="image/*">
-                    <label for="name">
-                        닉네임
-                        <input class="user-name" name="name" type="text" placeholder="닉네임"> 
-                    </label>
+                    <input class="image-input" type="file" id="chooseFile" name="chooseFile" accept="image/*">
+                    <input class="user-name" type="text" placeholder="닉네임"> 
                     <input type="button" class="address-ser" value="우편번호 찾기">
-                    <label for="name">
-                        우편번호
-                        <input class="address-num" type="text" id="sample6_postcode" placeholder="우편번호">
-                    </label>
-                    <label for="name">
-                        주소
-                        <input class="address" type="text" id="sample6_address" placeholder="주소">
-                    </label>
-                    <label for="name">
-                        참고항목
-                        <input class="address-relate" type="text" id="sample6_extraAddress" placeholder="참고항목">
-                    </label>
-                    <label for="name">
-                        상세주소
-                        <input class="address-detail" type="text" id="sample6_detailAddress" placeholder="상세주소">
-                    </label>
-                    <label for="name">
-                        인스타그램
-                        <input class="insta" type="text"  placeholder="인스타그램">
-                    </label>
-                    <label for="name">
-                        페이스북
-                        <input class="facebook" type="text"  placeholder="페이스북">
-                    </label>
-                    <label for="name">
-                        트위터
-                        <input class="twitter" type="text"  placeholder="트위터">
-                    </label>
+                    <input class="address-num" type="text" id="sample6_postcode" placeholder="우편번호">
+                    <input class="address" type="text" id="sample6_address" placeholder="주소">
+                    <input class="address-relate" type="text" id="sample6_extraAddress" placeholder="참고항목">
+                    <input class="address-detail" type="text" id="sample6_detailAddress" placeholder="상세주소">
+                    <input class="insta" type="text"  placeholder="인스타그램">
+                    <input class="facebook" type="text"  placeholder="페이스북">
+                    <input class="twitter" type="text"  placeholder="트위터">
                     사업자 <input type="radio">
                     <button type="button" class="profile-btn" >저장</button>
             </div>

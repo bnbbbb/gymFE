@@ -8,6 +8,9 @@ const $address_num = document.querySelector('.address-num')
 const $address = document.querySelector('.address')
 const $address_relate = document.querySelector('.address-relate')
 const $address_detail = document.querySelector('.address-detail')
+const $insta = document.querySelector('.insta')
+const $facebook = document.querySelector('.facebook')
+const $twitter = document.querySelector('.twitter')
 // const user = getWithExpire('user');
 const userProfileData = JSON.parse(localStorage.getItem('userprofile'));
 const $profile_save = document.querySelector('.profile-btn')
@@ -39,6 +42,9 @@ const myprofile = async() => {
         $address.value = data.address;
         $address_relate.value = data.address_relate;
         $address_detail.value = data.address_detail;
+        $insta.value = data.insta_url;
+        $facebook.value = data.face_url;
+        $twitter.value = data.twitter_url;
     })
     .catch((err) => {
         console.log(err);
@@ -58,6 +64,9 @@ const profile_save = async (event) => {
     const address = $address.value
     const address_relate = $address_relate.value
     const address_detail = $address_detail.value
+    const insta_url = $insta.value
+    const face_url = $facebook.value
+    const twitter_url = $twitter.value
     if (profileimage) {
         formData.append('image', profileimage)
     }
@@ -66,6 +75,9 @@ const profile_save = async (event) => {
     formData.append('address', address)
     formData.append('address_relate', address_relate)
     formData.append('address_detail', address_detail)
+    formData.append('insta_url', insta_url)
+    formData.append('face_url', face_url)
+    formData.append('twitter_url', twitter_url)
     console.log(formData);
 
     const url = 'http://127.0.0.1:8000/user/profile/update/'

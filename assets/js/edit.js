@@ -14,7 +14,13 @@ function stripHTML(html) {
     const doc = new DOMParser().parseFromString(html, 'text/html');
     return doc.body.textContent || "";
 }
-
+const editor = new Editor({
+    el: document.querySelector("#toast-editor"),
+    // initialValue: data.post.content, // 'initialEditType' 대신 'initialValue' 사용
+    initialEditType: "markdown", // 'initialEditType' 대신 'initialValue' 사용
+    previewStyle: "vertical",
+    height: "600px"
+});
 
 const postData = async () => {
     const url = `http://127.0.0.1:8000/blog/detail/${renderPage.page}/`;
@@ -24,23 +30,16 @@ const postData = async () => {
             throw new Error('게시글 데이터를 가져오는 중 오류 발생');
         }
         const data = await response.json();
-        const htmlFromServer = data.post.content
-        const pureText = stripHTML(htmlFromServer);
+        
+        editor.setMarkdown(data.post.content);
         $title.value = data.post.title;
         let tag_array = []
         data.tags.forEach(d => {
             // $tags.value = `#${d.name} `
-            tag_array.push(`#${d.name}`)
+            tag_array.push(`${d.name}`)
             console.log(d.name);
         })
         $tags.value = tag_array.join(' ')
-        const editor = new Editor({
-            el: document.querySelector("#toast-editor"),
-            initialValue: data.post.content, // 'initialEditType' 대신 'initialValue' 사용
-            initialEditType: "markdown", // 'initialEditType' 대신 'initialValue' 사용
-            previewStyle: "vertical",
-            height: "600px"
-        });
 
         // 제목 표시
     } catch (error) {
@@ -48,27 +47,21 @@ const postData = async () => {
     }
 }
 
-postData();
 
 
 
-const postWrite = async () => {
-    const url = `http://127.0.0.1:8000/blog/detail/${renderPage.page}/`;
+const postEdit = async () => {
+    const url = `http://127.0.0.1:8000/blog/detail/${renderPage.page}/edit/`;
     const access = getCookie('access');
     formData.append('title', $title.value);
-    // formData.append('content', $toast_ui.value);
-    formData.append('content', editor.getHTML());
+    formData.append('content', editor.getMarkdown());
     formData.append('tags', $tags.value)
-    // const htmlContent = marked(editor.getMarkdown());
-    // console.log(htmlContent);
-    // formData.append('content', editor.getMarkdown());
-    // formData.append('content', htmlContent);
     console.log(editor.getMarkdown());
     console.log(editor.getHTML());
     console.log($toast_ui.value);
     
     await fetch(url, {
-        method: "POST",
+        method: "PUT",
         headers: {
             "Authorization": `Bearer ${access}`,
         },
@@ -77,12 +70,13 @@ const postWrite = async () => {
     .then((response) => response.json())
     .then((data) => {
         alert(data.message);
-        // location.href = '/index.html'
+        window.location.href = './detail.html'
     })
     .catch((error) => {
         console.log(error);
     });
 }
 
-$saveBtn.addEventListener('click', postWrite);
+$saveBtn.addEventListener('click', postEdit);
+postData();
 // const url = `http://127.0.0.1:8000/blog/detail/${renderPage.page}/edit`;
