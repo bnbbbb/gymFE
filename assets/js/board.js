@@ -24,7 +24,7 @@ const post_list = async () => {
             $post_list.append(element)
         })
         if (profile.image) {
-            $user_img.src = profile.image
+            $user_img.src = 'https://myorgobucket.s3.ap-northeast-2.amazonaws.com' + profile.image
         }
         else{
             $user_img.src = '../assets/img/default.png'

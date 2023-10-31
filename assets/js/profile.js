@@ -12,7 +12,7 @@ const $insta = document.querySelector('.insta')
 const $facebook = document.querySelector('.facebook')
 const $twitter = document.querySelector('.twitter')
 // const user = getWithExpire('user');
-const userProfileData = JSON.parse(localStorage.getItem('userprofile'));
+const userProfileData = JSON.parse(localStorage.getItem('profile'));
 const $profile_save = document.querySelector('.profile-btn')
 
 
@@ -31,8 +31,9 @@ const myprofile = async() => {
     .then((res) => res.json())
     .then((data) => {
         console.log(data);
+        console.log(data.image);
         if (data.image){
-            $previewImage.src = data.image
+            $previewImage.src = 'https://myorgobucket.s3.ap-northeast-2.amazonaws.com'+data.image
         }
         else{
             $previewImage.src = '../assets/img/default.png'

@@ -6,7 +6,7 @@ const $logout_btn = document.querySelector('.button_logout')
 const logout = (event) => {
     event.preventDefault()
     localStorage.removeItem('user');
-    localStorage.removeItem('follow');
+    localStorage.removeItem('profile');
     deleteCookie('access')
     deleteCookie('refresh')
     location.href = '/index.html'

@@ -5,6 +5,8 @@ const login_btn = document.querySelector('.login')
 const join_btn = document.querySelector('.join')
 const profile_img = document.querySelector('.profile-img')
 const write_btn = document.querySelector('.write')
+const header_img = document.querySelector('.header-img')
+const userProfileData = JSON.parse(localStorage.getItem('profile'));
 
 const is_logined = async() => {
     if (getWithExpire('user')) {
@@ -17,5 +19,14 @@ const is_logined = async() => {
         write_btn.style.display='none'
     }
 }
+const exist_profile = async() => {
+    if (userProfileData.image) {
+        header_img.src = 'https://myorgobucket.s3.ap-northeast-2.amazonaws.com'+ userProfileData.image
+    }
+    else{
+        header_img.src = './assest/img/default.png'
+    }
+}
 
 is_logined()
+exist_profile()
