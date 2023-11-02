@@ -59,9 +59,10 @@ export const create_post = (post, owner, where, likes) => {
     }
     // 이미지와 닉네임을 순서대로 추가
     post_date.innerText = `${year}-${month}-${day}`;
-    post_writer.innerText = post.name
+    post_writer.innerText = owner.name
     post_author.appendChild(author_img)
     post_author.appendChild(post_writer)
+
 
     // author_img.outerText = post.name;
     post_li.append(post_a)

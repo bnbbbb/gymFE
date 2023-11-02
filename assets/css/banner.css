@@ -93,3 +93,50 @@
 		padding-left: 0;
 	}
 }
+
+.search {
+    position: absolute;
+	margin-top: 40px;
+	width: 40%;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    text-align: center; /* 텍스트 가운데 정렬 */
+}
+
+.search-input {
+    width: 100%;
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    color: #333;
+    display: block; /* 수직 스택 요소로 설정 */
+    margin-bottom: 10px; /* 입력 필드 아래에 간격을 조절합니다. */
+}
+
+.search-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+	gap: 0.8rem;
+	height: 4rem;
+	padding: 0.2rem 1.2em 0;
+	border: 0;
+	border-radius: var(--border-radius);
+	background: var(--main-color);
+	color: var(--white-color);
+	text-transform: uppercase;
+	font-weight: bold;
+	line-height: 1;
+}
+
+/* 선택 시 스타일 (예: 버튼 클릭 시) */
+.search-btn:focus {
+    outline: none;
+}
+.search-btn:hover {
+    background-color: #005fa6; /* 마우스를 올렸을 때 배경색 변경 */
+}

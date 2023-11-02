@@ -79,13 +79,13 @@ label {
 }
 
 
-.profile-btn{
+/* .profile-btn{
     padding: 16px 75px;
     background-color: #3b3b3b;
     border-style: none;
     border-radius: 10px;
     color: white;
-}
+} */
 .profile-btn :hover{
     background-color: #797979;
 }

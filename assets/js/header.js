@@ -20,12 +20,15 @@ const is_logined = async() => {
     }
 }
 const exist_profile = async() => {
-    if (userProfileData.image) {
-        header_img.src = 'https://myorgobucket.s3.ap-northeast-2.amazonaws.com'+ userProfileData.image
+    if (userProfileData){
+        if (userProfileData.image) {
+            header_img.src = 'https://myorgobucket.s3.ap-northeast-2.amazonaws.com'+ userProfileData.image
+        }
+        else{
+            header_img.src = './assest/img/default.png'
+        }
     }
-    else{
-        header_img.src = './assest/img/default.png'
-    }
+
 }
 
 is_logined()

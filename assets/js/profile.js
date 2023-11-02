@@ -94,8 +94,11 @@ const profile_save = async (event) => {
     .then((data) => {
         if (data) {
             // alert('프로필 변경이 완료되었습니다.')
-            // setWithExpire('user', data);
             console.log(data);
+            setWithExpire('profile',data)
+            setWithExpire('user', data);
+            // location.href = '/index.html'
+
         }
     })
     .catch((err) => {
