@@ -50,6 +50,8 @@ export const getWithExpire = (key) => {
 
     if(now.getTime() > item.expires) {
         localStorage.removeItem(key)
+        localStorage.removeItem('user');
+        localStorage.removeItem('profile');
         deleteCookie('access')
         deleteCookie('refresh')
         alert('로그인 시간이 만료되어 로그아웃 되었습니다.')

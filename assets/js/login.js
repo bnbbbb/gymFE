@@ -2,11 +2,11 @@ import {setCookie, is_logined, setWithExpire} from "./util.js"
 
 const $login_btn = document.querySelector('.login_btn')
 
-const id_login = async (evenv) => {
-    evenv.preventDefault()
+const id_login = async (event) => {
+    event.preventDefault()
 
-    const username = document.querySelector('.user-login__username').value
-    const password = document.querySelector('.user-login__password').value
+    const username = document.querySelector('.user-login-username').value
+    const password = document.querySelector('.user-login-password').value
 
     const formData = new FormData()
 

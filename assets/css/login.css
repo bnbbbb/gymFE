@@ -1,4 +1,4 @@
-.user-login {
+.user-login, .user-password {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -11,13 +11,13 @@
 	min-height: 70vh;
 }
 
-.user-login h2 {
+.user-login h2, .user-password h2 {
 	font-size: 50px;
 	font-weight: bold;
 	margin-bottom: 60px;
 }
 
-.login_input_wrap {
+.login-input-wrap, .pw-input-wrap {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -25,7 +25,7 @@
 	margin-bottom: 40px;
 }
 
-.login_input_wrap input{
+.login-input-wrap input,.pw-input-wrap input{
 	width: 300px;
 	height: 30px;
 	border: none;
@@ -36,20 +36,23 @@
 	font-size: 16px;
 }
 
-.login_btn {
+.login_btn, .pw-btn {
 	width: 310px;
 	height: 40px;
 	border: none;
 	font-weight: bold;
 	/* background: var(--maincolor); */
-	background-color: rgb(207, 207, 207);
+	background-color: rgb(143, 143, 143);
 
 	padding: 0.5rem 1.8rem 0.5rem 1.8rem;
 	border-radius: 5px;
-	color: white;
+	color: rgb(255, 255, 255);
 	font-size: 16px;
 	cursor: pointer;
 	margin-bottom: 10px;
+}
+.pw-btn a:hover {
+	background-color: rgb(83, 83, 83);
 }
 .google_btn {
 	width: 310px;
@@ -82,7 +85,9 @@
 	text-decoration: none;
 }
 
-
+.pw-unfirm {
+	color: rgb(109, 10, 10);
+}
 
 /* .github_btn {
 	margin-top: 1rem;
