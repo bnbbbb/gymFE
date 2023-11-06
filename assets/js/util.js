@@ -62,7 +62,6 @@ export const getWithExpire = (key) => {
 
 export const detail_page = (event) => {
     let target = event.target;
-    console.log('Clicked element ID:', target.id);
     while (target.classList != 'post'){
         target = target.parentNode
     }

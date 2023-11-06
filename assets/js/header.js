@@ -4,7 +4,7 @@ const $button_logout = document.querySelector('.button_logout')
 const login_btn = document.querySelector('.login')
 const join_btn = document.querySelector('.join')
 const profile_img = document.querySelector('.profile-img')
-const write_btn = document.querySelector('.write')
+const write_btn = document.querySelector('.button')
 const header_img = document.querySelector('.header-img')
 const userProfileData = JSON.parse(localStorage.getItem('profile'));
 
@@ -25,7 +25,7 @@ const exist_profile = async() => {
             header_img.src = 'https://myorgobucket.s3.ap-northeast-2.amazonaws.com'+ userProfileData.image
         }
         else{
-            header_img.src = './assest/img/default.png'
+            header_img.src = '../assets/img/default.png'
         }
     }
 

@@ -14,7 +14,7 @@ export const create_post = (post, owner, where, likes) => {
     const post_date = document.createElement('dd');
     const post_content = document.createElement('p');
     const post_writer = document.createElement('p');
-    const post_url = './view/detail.html'
+    const post_url = '../view/detail.html'
     const originDate = post.created_at
     const date = new Date(originDate);
     const year = date.getFullYear();

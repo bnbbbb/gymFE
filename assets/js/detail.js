@@ -1,4 +1,6 @@
-// import { getCookie, getWithExpirec } from "./util.js";
+import { getCookie, setWithExpire } from "./util.js";
+
+const profile = JSON.parse(localStorage.getItem("profile"))
 
 const renderPage = JSON.parse(localStorage.getItem("postPage"))
 // const $post_view = document.querySelector('div')
@@ -14,6 +16,7 @@ const $post_title = document.querySelector('.post-title')
 const $post_content = document.querySelector('.view-contents')
 const $btn_like = document.querySelector('.btn-like')
 const $btn_modify = document.querySelector('.btn-modify')
+const $btn_delete = document.querySelector('.btn-delete')
 const daysOfWeek = ["일", "월", "화", "수", "목", "금", "토"];
 const months = [
     'January', 'February', 'March', 'April', 'May', 'June',
@@ -30,8 +33,10 @@ const Viewer = toastui.Editor;
 
 const postLoad = async () => {
     const url = `http://127.0.0.1:8000/blog/detail/${renderPage.page}/`
-    const formData = new FormData()
-    formData.append('post_id', renderPage.page);
+    $btn_modify.style.display='none'
+    $btn_delete.style.display='none'
+    // const formData = new FormData()
+    // formData.append('post_id', renderPage.page);
 
     await fetch(url, {
         method: "get",
@@ -51,7 +56,13 @@ const postLoad = async () => {
             initialValue: data.post.content
         });
         $day.innerHTML = `${monthName} <em>${dayOfMonth}</em> ${dayOfWeek}`
-        $owner_name.innerText = data.writer.name
+        const owner_name = data.writer.name
+        console.log(owner_name);
+        $owner_name.innerText = owner_name
+        if (profile && (owner_name === profile.name)){
+            $btn_modify.style.display=''
+            $btn_delete.style.display=''
+        }
         $created.innerText = `${year}-${month}-${day}`
         $post_title.innerText = data.post.title
         data.tags.forEach(d => {
@@ -65,4 +76,28 @@ const postLoad = async () => {
     })
 }
 
+
+const deletePost = async () => {
+    const url = `http://127.0.0.1:8000/blog/detail/${renderPage.page}/delete/`
+    const access = getCookie('access');
+    
+    await fetch(url, {
+        method: "POST",
+        headers: {
+            "Authorization": `Bearer ${access}`,
+        },
+        // body: formData,
+    })
+    .then((res) => res.json())
+    .then((data) => {
+        console.log(data);
+        window.location.href = '../index.html'
+    })
+    .catch((err) => {
+        console.log(err);
+    });
+}   
+
 postLoad()
+
+$btn_delete.addEventListener('click', deletePost)
