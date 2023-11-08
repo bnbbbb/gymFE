@@ -26,7 +26,7 @@ function checkPasswordMatch() {
     }
 }
 
-const password_chand = async (event) => {
+const password_chang = async (event) => {
     event.preventDefault()
     const formData = new FormData()
     formData.append('cur_password', $pw_current.value)
@@ -55,4 +55,4 @@ const password_chand = async (event) => {
     })
 }
 
-$pw_btn.addEventListener('click',password_chand)
+$pw_btn.addEventListener('click',password_chang)

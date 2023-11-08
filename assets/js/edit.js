@@ -37,7 +37,7 @@ const postData = async () => {
         data.tags.forEach(d => {
             // $tags.value = `#${d.name} `
             tag_array.push(`${d.name}`)
-            console.log(d.name);
+            // console.log(d.name);
         })
         $tags.value = tag_array.join(' ')
 

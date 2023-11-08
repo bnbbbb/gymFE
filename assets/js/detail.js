@@ -57,7 +57,6 @@ const postLoad = async () => {
         });
         $day.innerHTML = `${monthName} <em>${dayOfMonth}</em> ${dayOfWeek}`
         const owner_name = data.writer.name
-        console.log(owner_name);
         $owner_name.innerText = owner_name
         if (profile && (owner_name === profile.name)){
             $btn_modify.style.display=''
