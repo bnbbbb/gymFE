@@ -1,11 +1,10 @@
-// const $write_btn = document.querySelector('.button white')
+const $top_btn = document.querySelector('.top-button')
 
-// function write() {
-//     $write_btn.forEach(write_btn => {
-//         write_btn.addEventListener('click', (evenv) => {
-//             location.href = '/view/write.html';
-//         })
-//     })
-// }
+function scrollToTop() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'  // 부드럽게 스크롤되도록 설정
+    });
+}
 
-// write()
+$top_btn.addEventListener('click', scrollToTop)

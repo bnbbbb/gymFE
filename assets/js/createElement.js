@@ -26,7 +26,10 @@ export const create_post = (post, owner, where, likes) => {
     // const htmlContent = marked(post.content);
     // console.log(htmlContent);
     // console.log(post);
-    
+    console.log(post.first_img);
+    if (post.first_img){
+        post_img.src = 'https://myorgobucket.s3.ap-northeast-2.amazonaws.com/'+ post.first_img
+    }
     post_a.id = post.id
     post_a.href = post_url
     post_a.className = 'post'
@@ -77,7 +80,6 @@ export const create_post = (post, owner, where, likes) => {
     // post_li 엘리먼트를 반환
     return post_li;
 }
-
 
 // export const create_view = (post_id, owner, likes) => {
 //     // const $post_view = document.createElement('div')

@@ -1,6 +1,8 @@
 .wrap-box {
 	position: relative;
 	width: 60rem;
+	height: 80rem;
+	/* max-height: calc(100% - 4rem); */
 	max-width: calc(100% - 4rem);
 	margin: -22rem auto 0;
 	padding: 8rem 0;
