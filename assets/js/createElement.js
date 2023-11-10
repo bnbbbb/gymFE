@@ -26,7 +26,7 @@ export const create_post = (post, owner, where, likes) => {
     // const htmlContent = marked(post.content);
     // console.log(htmlContent);
     // console.log(post);
-    console.log(post.first_img);
+    // console.log(post.first_img);
     if (post.first_img){
         post_img.src = 'https://myorgobucket.s3.ap-northeast-2.amazonaws.com/'+ post.first_img
     }
@@ -81,18 +81,24 @@ export const create_post = (post, owner, where, likes) => {
     return post_li;
 }
 
-// export const create_view = (post_id, owner, likes) => {
-//     // const $post_view = document.createElement('div')
-//     const $post_width = document.createElement('div')
-//     const $post_box = document.createElement('section')
-//     const $post_inner = document.createElement('div')
-//     const $owner = document.createElement('dl')
-//     const $owner_hidden = document.createElement('dt')
-//     const $owner_author = document.createElement('dd')
-//     const $created_hidden = document.createElement('dt')
-//     const $created_time = document.createElement('dd')
-//     const $tag = document.createElement('dl')
-//     const $tag_hidden = document.createElement('dl')
-//     const $tag = document.createElement('dl')
-
-// }
+export function create_page(totalPages, searchTermParam) {
+    for (let i = 1; i <= totalPages; i++){
+        console.log(searchTermParam);
+        const paginationContainer = document.querySelector('.pagination-list')
+        const pageItem = document.createElement('li');
+        const pageLink = document.createElement('a');
+        pageItem.classList.add('pagination-item');
+        if (searchTermParam) {
+            // console.log(searchTermParam);
+            pageLink.href = `search.html?searchTerm=${searchTermParam}?page=${i}`;
+        }
+        else{
+            pageLink.href = `?page=${i}`;
+        }
+        pageLink.className = `page${i}`
+        pageLink.innerText = i;
+        // 
+        pageItem.append(pageLink);
+        paginationContainer.append(pageItem);
+    }
+}

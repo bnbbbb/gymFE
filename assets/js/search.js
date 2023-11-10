@@ -1,55 +1,71 @@
-import { detail_page } from "./util.js"
-import { create_post } from "./createElement.js"
-const profile = JSON.parse(localStorage.getItem("profile"))
+import { detail_page } from "./util.js";
+import { create_post, create_page } from "./createElement.js";
 
-const $user_name = document.querySelector('.user-name')
-const $user_about = document.querySelector('.user-description')
-const $user_img = document.querySelector('.profile-image')
-const $user_facebook = document.querySelector('.facebook')
-const $user_twitter = document.querySelector('.twitter')
-const $user_insta = document.querySelector('.instagram')
-const $usprofile_link = document.querySelector('.profile-link')
+const profile = JSON.parse(localStorage.getItem("profile"));
+
+const $user_name = document.querySelector('.user-name');
+const $user_about = document.querySelector('.user-description');
+const $user_img = document.querySelector('.profile-image');
+const $user_facebook = document.querySelector('.facebook');
+const $user_twitter = document.querySelector('.twitter');
+const $user_insta = document.querySelector('.instagram');
+const $usprofile_link = document.querySelector('.profile-link');
 const $search = document.querySelector('.search-input');
 const $search_btn = document.querySelector('.search-btn');
 
+const urlParams = new URLSearchParams(window.location.search);
+const searchTermParam = urlParams.get('searchTerm') || '';
+const pageParam = parseInt(urlParams.get('page')) || 1;
+console.log(searchTermParam);
+// $search.value = searchTermParam;
+
 $search_btn.addEventListener("click", function () {
     const searchTerm = $search.value;
-    // 검색어를 URL 파라미터로 추가하고 search.html로 이동
-    window.location.href = `../view/search.html?searchTerm=${searchTerm}`;
+    
+    // 현재 URL의 매개변수를 읽어옴
+    const urlParams = new URLSearchParams(window.location.search);
+    
+    // 매개변수에 검색어 추가
+    if (searchTerm) {
+        urlParams.set('searchTerm', searchTerm);
+    } else {
+        // 검색어가 비어있다면 매개변수 제거
+        urlParams.delete('searchTerm');
+    }
+    // 현재 페이지의 상태를 변경하고 새로운 URL을 생성
+    const newUrl = `${window.location.pathname}?${urlParams.toString()}`;
+    
+    // 페이지 이동
+    window.location.href = newUrl;
 });
-const urlParams = new URLSearchParams(window.location.search);
-const searchTerm = urlParams.get('searchTerm');
-sendSearchRequest(searchTerm)
-// $search_btn.addEventListener("click", function () {
-//     // 검색어를 입력 필드에서 가져옵니다.
-//     const searchTerm = $search.value;
-//     // console.log(searchTerm);
-//     // 가져온 검색어를 서버로 전송합니다.
-//     // window.location.href = '../view/search.html'
-//     sendSearchRequest(searchTerm);
-// });
 
-function sendSearchRequest(searchTerm) {
-    // 검색어를 서버로 보낼 URL을 구성합니다.
-    const url = `http://127.0.0.1:8000/blog/search/${searchTerm}`;
+const sendSearchRequest = async (searchTermParam, page) => {
+    const url = `http://127.0.0.1:8000/blog/search/${searchTermParam}`;
+    
+    try {
+        const response = await fetch(url, {
+            method: "GET",
+            headers: {},
+        });
 
-    // fetch를 사용하여 GET 요청을 보냅니다.
-    fetch(url, {
-        method: "GET",
-        headers: {
-        },
-    })
-    .then((response) => response.json())
-    .then((data) => {
-        displaySearchResults(data)
-    })
-    .catch((error) => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const data = await response.json();
+        displaySearchResults(data);
+    } catch (error) {
         console.error("검색 오류:", error);
-    });
-}
+    }
+};
 
 function displaySearchResults(data) {
     const $post_list = document.querySelector('.posts')
+    // console.log(data.post_len);
+    const page_count = Math.ceil(data.post_len/12)
+    create_page(page_count, searchTermParam)
+    const cur_page = document.querySelector(`.page${pageParam}`)
+    console.log(cur_page);
+    cur_page.style.border = '2px solid #3498db'
     const datas = data.posts
     datas.forEach(data => {
         const element = create_post(data.post, data.writer, 'board', data.likes);
@@ -94,3 +110,4 @@ function displaySearchResults(data) {
         post.addEventListener('click', detail_page);
     });
 }
+sendSearchRequest(searchTermParam, pageParam);
