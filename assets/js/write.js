@@ -18,7 +18,7 @@ const editor = new Editor({
     
 });
 const postWrite = async () => {
-    const url = 'http://127.0.0.1:8000/blog/write/';
+    const url = 'http://api.gymsearch.shop/blog/write/';
     const access = getCookie('access');
     formData.append('title', $title.value);
     // formData.append('content', $toast_ui.value);

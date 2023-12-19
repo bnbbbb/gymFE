@@ -25,7 +25,7 @@ const joinFunc = async (event) => {
     formData.append('username', username);
     formData.append('password', password);
 
-    const url = 'http://127.0.0.1:8000/user/register/'
+    const url = 'http://api.gymsearch.shop/user/register/'
 
     await fetch(url, {
         method: "POST",

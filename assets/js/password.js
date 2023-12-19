@@ -32,7 +32,7 @@ const password_chand = async (event) => {
     formData.append('cur_password', $pw_current.value)
     formData.append('new_password', $pw_confirm.value)
 
-    const url = 'http://127.0.0.1:8000/user/password/'
+    const url = 'http://api.gymsearch.shop/user/password/'
     const access = getCookie('access');
 
     await fetch(url, {

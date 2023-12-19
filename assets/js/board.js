@@ -20,7 +20,10 @@ $search_btn.addEventListener("click", function () {
 
 const post_list = async () => {
     
-    const url = 'http://127.0.0.1:8000/blog/'
+    // const url = 'http://127.0.0.1:8000/blog/'
+    // const url = 'http://ec2-15-165-243-153.ap-northeast-2.compute.amazonaws.com/blog/'
+    // const url = 'http://ec2-52-79-250-238.ap-northeast-2.compute.amazonaws.com/blog/'
+    const url = 'http://api.gymsearch.shop/blog/'
     await fetch(url, {
         method: "GET",
         headers: {

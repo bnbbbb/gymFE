@@ -81,7 +81,7 @@ const profile_save = async (event) => {
     formData.append('twitter_url', twitter_url)
     console.log(formData);
 
-    const url = 'http://127.0.0.1:8000/user/profile/update/'
+    const url = 'http://api.gymsearch.shop/user/profile/update/'
 
     await fetch(url, {
         method: "POST",

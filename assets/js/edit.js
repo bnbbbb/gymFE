@@ -23,7 +23,7 @@ const editor = new Editor({
 });
 
 const postData = async () => {
-    const url = `http://127.0.0.1:8000/blog/detail/${renderPage.page}/`;
+    const url = `http://api.gymsearch.shop/blog/detail/${renderPage.page}/`;
     try {
         const response = await fetch(url);
         if (!response.ok) {
@@ -51,7 +51,7 @@ const postData = async () => {
 
 
 const postEdit = async () => {
-    const url = `http://127.0.0.1:8000/blog/detail/${renderPage.page}/edit/`;
+    const url = `http://api.gymsearch.shop/blog/detail/${renderPage.page}/edit/`;
     const access = getCookie('access');
     formData.append('title', $title.value);
     formData.append('content', editor.getMarkdown());
@@ -76,6 +76,8 @@ const postEdit = async () => {
         console.log(error);
     });
 }
+
+
 
 $saveBtn.addEventListener('click', postEdit);
 postData();

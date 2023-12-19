@@ -32,7 +32,8 @@ $btn_modify.href = './edit.html'
 const Viewer = toastui.Editor;
 
 const postLoad = async () => {
-    const url = `http://127.0.0.1:8000/blog/detail/${renderPage.page}/`
+    // const url = `http://127.0.0.1:8000/blog/detail/${renderPage.page}/`
+    const url = `http://api.gymsearch.shop/blog/detail/${renderPage.page}/`
     $btn_modify.style.display='none'
     $btn_delete.style.display='none'
     // const formData = new FormData()
@@ -78,7 +79,7 @@ const postLoad = async () => {
 
 
 const deletePost = async () => {
-    const url = `http://127.0.0.1:8000/blog/detail/${renderPage.page}/delete/`
+    const url = `http://api.gymsearch.shop/blog/detail/${renderPage.page}/delete/`
     const access = getCookie('access');
     
     await fetch(url, {

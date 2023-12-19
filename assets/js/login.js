@@ -13,7 +13,7 @@ const id_login = async (event) => {
     formData.append('username', username)
     formData.append('password', password)
 
-    const url = 'http://127.0.0.1:8000/user/login/'
+    const url = 'http://api.gymsearch.shop/user/login/'
 
     await fetch(url, {
         method: "POST",
@@ -36,6 +36,7 @@ const id_login = async (event) => {
     })
     .catch((err) => {
         console.log(err);
+        alert('아이디나 비밀번호가 일치하지 않습니다.')
     });
 }
 

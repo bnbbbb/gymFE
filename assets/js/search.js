@@ -31,7 +31,7 @@ sendSearchRequest(searchTerm)
 
 function sendSearchRequest(searchTerm) {
     // 검색어를 서버로 보낼 URL을 구성합니다.
-    const url = `http://127.0.0.1:8000/blog/search/${searchTerm}`;
+    const url = `http://api.gymsearch.shop/blog/search/${searchTerm}`;
 
     // fetch를 사용하여 GET 요청을 보냅니다.
     fetch(url, {
