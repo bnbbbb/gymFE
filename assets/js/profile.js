@@ -18,7 +18,7 @@ const $profile_save = document.querySelector('.profile-btn')
 
 const myprofile = async() => {
     const access = getCookie('access')
-    const url = 'http://127.0.0.1:8000/user/profile/'
+    const url = 'http://api.gymsearch.shop/user/profile/'
 
     await fetch(url, {
         method: "POST",
@@ -97,7 +97,7 @@ const profile_save = async (event) => {
             console.log(data);
             setWithExpire('profile',data)
             setWithExpire('user', data);
-            // location.href = '/index.html'
+            location.href = '/index.html'
 
         }
     })
