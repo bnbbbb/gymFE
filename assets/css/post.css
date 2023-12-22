@@ -63,3 +63,41 @@
 	-webkit-line-clamp: 3;
 	text-indent: 0.5em;
 }
+
+article {
+	width: 275px;
+}
+
+.pagination {
+	display: flex;
+	justify-content: center; /* 중앙 정렬을 위해 추가 */
+	margin-top: 20px; /* 원하는 만큼 조절 */
+}
+
+.pagination-list {
+list-style: none;
+padding: 0;
+display: flex;
+}
+
+.pagination-item {
+margin-right: 10px;
+}
+
+.pagination-item a {
+text-decoration: none; /* 링크 밑줄 제거 */
+padding: 5px 10px;
+border: 1px solid #ccc; /* 원하는 스타일로 조절 */
+border-radius: 4px; /* 원하는 스타일로 조절 */
+color: #333; /* 원하는 스타일로 조절 */
+}
+
+.pagination-item a:hover {
+background-color: #f0f0f0; /* 마우스 호버 시 배경색 변경 */
+}
+
+.pagination-item a.active {
+	background-color: #3498db; /* 현재 페이지에 대한 배경색 */
+	color: #fff; /* 현재 페이지에 대한 글자색 */
+	border-color: #3498db; /* 현재 페이지에 대한 테두리색 */
+}

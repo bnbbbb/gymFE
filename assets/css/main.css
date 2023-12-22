@@ -1,4 +1,4 @@
-main > .max-width {
+main > .post-max-width,  main > .max-width{
 	display: flex;
 	flex-direction: row-reverse;
 	gap: 2.4rem;

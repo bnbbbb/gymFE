@@ -1,7 +1,7 @@
 import { detail_page } from "./util.js"
-import { create_post } from "./createElement.js"
+import { create_post, create_page } from "./createElement.js"
 const profile = JSON.parse(localStorage.getItem("profile"))
-
+const $page_num = document.querySelector('.posts')
 const $user_name = document.querySelector('.user-name')
 const $user_about = document.querySelector('.user-description')
 const $user_img = document.querySelector('.profile-image')
@@ -11,19 +11,19 @@ const $user_insta = document.querySelector('.instagram')
 const $usprofile_link = document.querySelector('.profile-link')
 const $search = document.querySelector('.search-input');
 const $search_btn = document.querySelector('.search-btn');
-
+const urlParams = new URLSearchParams(window.location.search);
+const pageParam = urlParams.get('page') || 1;
+console.log(pageParam);
+console.log(`.page${pageParam}`);
+// console.log(cur_page);
 $search_btn.addEventListener("click", function () {
     const searchTerm = $search.value;
     // 검색어를 URL 파라미터로 추가하고 search.html로 이동
     window.location.href = `../view/search.html?searchTerm=${searchTerm}`;
 });
-
-const post_list = async () => {
+const post_list = async (page = pageParam) => {
     
-    // const url = 'http://127.0.0.1:8000/blog/'
-    // const url = 'http://ec2-15-165-243-153.ap-northeast-2.compute.amazonaws.com/blog/'
-    // const url = 'http://ec2-52-79-250-238.ap-northeast-2.compute.amazonaws.com/blog/'
-    const url = 'http://api.gymsearch.shop/blog/'
+    const url = `http://api.gymsearch.shop/blog/?page=${page}`
     await fetch(url, {
         method: "GET",
         headers: {
@@ -32,7 +32,13 @@ const post_list = async () => {
     .then((res) => res.json())
     .then((data) => {
         const $post_list = document.querySelector('.posts')
+        const page_count = Math.ceil(data.post_len/12)
+        create_page(page_count)
+        const cur_page = document.querySelector(`.page${pageParam}`)
+        console.log(cur_page);
+        cur_page.style.border = '2px solid #3498db'
         const datas = data.posts
+        $post_list.innerHTML = '';
         datas.forEach(data => {
             const element = create_post(data.post, data.writer, 'board', data.likes);
             $post_list.append(element)
@@ -81,8 +87,6 @@ const post_list = async () => {
     })
 }
 
-// posts.forEach(post => {
-//     post.addEventListener('click', detail_page);
-// });
+
 
 post_list()

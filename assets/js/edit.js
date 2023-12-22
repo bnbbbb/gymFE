@@ -9,6 +9,7 @@ const $toast_ui = document.querySelector('#toast-editor')
 const $saveBtn = document.querySelector('.post-save');
 const $tags = document.querySelector('.tag-title')
 const Editor = toastui.Editor;
+const img_list = []
 
 function stripHTML(html) {
     const doc = new DOMParser().parseFromString(html, 'text/html');
@@ -16,10 +17,39 @@ function stripHTML(html) {
 }
 const editor = new Editor({
     el: document.querySelector("#toast-editor"),
-    // initialValue: data.post.content, // 'initialEditType' 대신 'initialValue' 사용
-    initialEditType: "markdown", // 'initialEditType' 대신 'initialValue' 사용
+    initialEditType: "markdown", 
     previewStyle: "vertical",
-    height: "600px"
+    height: "600px",
+    hooks: {
+        addImageBlobHook(blob, callback) {
+            console.log(blob);
+            console.log(callback);
+            const url = 'http://127.0.0.1:8000/blog/write/image/';
+            const access = getCookie('access');
+            formData.append('image', blob);
+            
+            fetch(url, {
+                method: "POST",
+                headers: {
+                    "Authorization": `Bearer ${access}`,
+                },
+                body: formData,
+            })
+            .then((res) => res.json())
+            .then((data) => {
+                if (data.length > 0) {
+                    for (let imageUrl of data) {
+                        console.log(imageUrl);
+                        img_list.push(imageUrl)
+                        callback(imageUrl, blob.name);
+                    }
+                }
+            })
+            .catch((error) => {
+                console.log("error", error);
+            })
+        },
+    },
 });
 
 const postData = async () => {
@@ -37,7 +67,7 @@ const postData = async () => {
         data.tags.forEach(d => {
             // $tags.value = `#${d.name} `
             tag_array.push(`${d.name}`)
-            console.log(d.name);
+            // console.log(d.name);
         })
         $tags.value = tag_array.join(' ')
 
@@ -54,6 +84,7 @@ const postEdit = async () => {
     const url = `http://api.gymsearch.shop/blog/detail/${renderPage.page}/edit/`;
     const access = getCookie('access');
     formData.append('title', $title.value);
+    formData.append('image', img_list)
     formData.append('content', editor.getMarkdown());
     formData.append('tags', $tags.value)
     console.log(editor.getMarkdown());

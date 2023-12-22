@@ -58,8 +58,14 @@ const postLoad = async () => {
         });
         $day.innerHTML = `${monthName} <em>${dayOfMonth}</em> ${dayOfWeek}`
         const owner_name = data.writer.name
-        console.log(owner_name);
+        const owner_img = data.writer.image
         $owner_name.innerText = owner_name
+        if (owner_img) {
+            $owner_img.src ='https://myorgobucket.s3.ap-northeast-2.amazonaws.com'+ owner_img
+        }
+        else{
+            $owner_img.src = '../assets/img/default.png'
+        }
         if (profile && (owner_name === profile.name)){
             $btn_modify.style.display=''
             $btn_delete.style.display=''
