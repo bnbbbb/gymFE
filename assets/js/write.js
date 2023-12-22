@@ -18,7 +18,7 @@ const editor = new Editor({
         addImageBlobHook(blob, callback) {
             console.log(blob);
             console.log(callback);
-            const url = 'http://127.0.0.1:8000/blog/write/image/';
+            const url = 'http://api.gymsearch.shop/blog/write/image/';
             const access = getCookie('access');
             formData.append('image', blob);
             
