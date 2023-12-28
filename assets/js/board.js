@@ -32,7 +32,7 @@ const post_list = async (page = pageParam) => {
         const page_count = Math.ceil(data.post_len/12)
         create_page(page_count)
         const cur_page = document.querySelector(`.page${pageParam}`)
-        console.log(cur_page);
+        // console.log(cur_page);
         cur_page.style.border = '2px solid #3498db'
         const datas = data.posts
         $post_list.innerHTML = '';
