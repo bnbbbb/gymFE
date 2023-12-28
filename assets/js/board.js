@@ -13,9 +13,6 @@ const $search = document.querySelector('.search-input');
 const $search_btn = document.querySelector('.search-btn');
 const urlParams = new URLSearchParams(window.location.search);
 const pageParam = urlParams.get('page') || 1;
-console.log(pageParam);
-console.log(`.page${pageParam}`);
-// console.log(cur_page);
 $search_btn.addEventListener("click", function () {
     const searchTerm = $search.value;
     // 검색어를 URL 파라미터로 추가하고 search.html로 이동
